@@ -36,10 +36,9 @@ nav {
 
 #content-wrapper {
     width: 100%;
-    min-height: 580px;
     background: #fff8a9;
     display: grid;
-    grid-template-columns: auto 160px;
+    grid-template-columns: 7fr 1fr;
 }
 
 p {
@@ -149,8 +148,20 @@ footer {
     padding: 1px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 605px) {
     li {
         display: none;
+    }
+
+    img {
+        display: none;
+    }
+
+    main {
+        display: block;
+    }
+
+    .button {
+        font-size: 7px;
     }
 }
