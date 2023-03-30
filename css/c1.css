@@ -37,7 +37,7 @@ nav {
 #content-wrapper {
     width: 100%;
     min-height: 580px;
-    background: #fff587;
+    background: #fff8a9;
     display: grid;
     grid-template-columns: 7fr 1fr;
 }
