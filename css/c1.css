@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+header {
+    height: 100px;
+    background: radial-gradient(circle, rgb(255, 233, 71) 0%, rgb(240, 60, 47) 100%);
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+
+nav {
+    padding-bottom: 1px;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.button {
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    border: none;
+    font: bold 15px "book antiqua", sans-serif;
+    letter-spacing: 3px;
+    background: transparent;
+}
+
+#content-wrapper {
+    width: 100%;
+    min-height: 580px;
+    background: #fff587;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+}
+
+p {
+    margin: 3px;
+    text-indent: 1.5em;
+    text-align: justify;
+    font-size: 20px;
+}
+
+aside {
+    background: rgb(255, 233, 71);
+    display: grid;
+
+    grid-template-rows: 110px auto;
+}
+
+.logo {
+    margin-top: 5px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: white;
+    justify-self: center;
+}
+
+.logoflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.lo {
+    text-align: center;
+    text-indent: 0;
+    width: 100%;
+    font-family: 'Pacifico', cursive;
+}
+
+.heart {
+    height: 40px;
+    width: 40px;
+    background-color: red;
+    transform: rotate(45deg);
+    position: relative;
+    margin: 10px;
+}
+
+.heart::after,
+.heart::before {
+    display: block;
+    height: 40px;
+    width: 40px;
+    content: '';
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    left: -20px;
+    top: 0;
+}
+
+li {
+    font-size: 20px;
+}
+
+#content {
+    height: auto;
+    padding: 5px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+img {
+    justify-self: center;
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    font-weight: lighter;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(240, 60, 47);
+}
+
+A:hover {
+    color: rgb(199, 115, 94);
+}
+
+footer {
+    height: 80px;
+    background: rgb(240, 60, 47);
+    padding: 1px;
+}
