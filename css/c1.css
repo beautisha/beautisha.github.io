@@ -39,7 +39,7 @@ nav {
     min-height: 580px;
     background: #fff8a9;
     display: grid;
-    grid-template-columns: 7fr 1fr;
+    grid-template-columns: auto 160px;
 }
 
 p {
@@ -52,7 +52,6 @@ p {
 aside {
     background: rgb(255, 233, 71);
     display: grid;
-
     grid-template-rows: 110px auto;
 }
 
@@ -111,7 +110,7 @@ aside {
 }
 
 li {
-    font-size: 2vw;
+    font-size: 2vmin;
 }
 
 #content {
@@ -148,4 +147,10 @@ footer {
     height: 80px;
     background: rgb(240, 60, 47);
     padding: 1px;
+}
+
+@media (max-width: 500px) {
+    li {
+        display: none;
+    }
 }
