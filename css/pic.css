@@ -1,0 +1,131 @@
+.bear {
+    height: 210px;
+    width: 200px;
+    position: relative;
+    z-index: 3;
+}
+
+.telo {
+    border: 3px solid gray;
+    border-radius: 50%;
+    background: radial-gradient(at 50% 65%, white, yellow);
+    height: 190px;
+    width: 190px;
+    position: relative;
+}
+
+.telo::after, .telo::before {
+    border: 2px solid gray;
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(white, gray);
+    height: 60px;
+    width: 60px;
+    content: '';
+    z-index: -1;
+}
+
+.telo::after {
+    right: 0;
+    top: -10px;
+}
+
+.telo::before {
+    top: -10px;
+}
+
+.eyes {
+    width: 50px; 
+    height: 80px;
+    background: rgb(70, 70, 70);
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(30deg);
+    top: 50px;
+    
+}
+.first {
+    left: 30px;
+}
+.second {
+    right: 30px;
+    transform: rotate(-30deg);
+}
+.first::after {
+    position: absolute;
+    border-radius: 50%;
+    background-color: transparent;
+    content: '';
+    width: 30px; 
+    height: 30px;
+    box-shadow: -8px 0px white;
+    transform: rotate(-15deg);
+    top: 10px;
+    left: 20px;
+}
+.second::after {
+    position: absolute;
+    border-radius: 50%;
+    background-color: transparent;
+    content: '';
+    width: 30px; 
+    height: 30px;
+    box-shadow: 8px 0px white;
+    transform: rotate(15deg);
+    top: 10px;
+    right: 20px;
+}
+.nose {
+    position: absolute;
+    width: 35px; 
+    height: 15px;
+    background: linear-gradient(90deg, white, black, white);
+    top: 115px;
+    left: 77.5px;
+    border-radius: 50%;
+}
+.nose::after {
+    position: absolute;
+    content: '';
+    width: 70px; 
+    height: 70px;
+    background-color: transparent;
+    border: 2px solid black;  
+    border-right-color: transparent;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    transform: rotate(45deg);
+    top: -28px;
+    left: 17px;
+}
+.nose::before {
+    position: absolute;
+    content: '';
+    width: 70px; 
+    height: 70px;
+    background-color: transparent;
+    border: 2px solid black;  
+    border-right-color: transparent;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    transform: rotate(-45deg);
+    top: -28px;
+    left: -55px;
+}
+.red::after, .red::before {
+    position: absolute;
+    content: '';
+    width: 30px; 
+    height: 30px;
+    background-color: red;
+    border-radius: 50px 50px 0 50px;
+    top: 175px;
+    transform: rotate(-45deg);
+    left: 60px;
+}
+.red::after {
+    transform: rotate(135deg);
+    left: 100px;
+}
