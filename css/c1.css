@@ -151,6 +151,29 @@ footer {
     padding: 1px;
 }
 
+button {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 150px;
+    right: 300px;
+}
+
+#perekr {
+    top: 190px;
+}
+.per {
+    font-weight: bold;
+}
+
+.class1 {
+    background-color: rgb(212, 112, 255);
+}
+
+.class2 {
+    background-color: rgb(255, 152, 152);
+}
+
 @media (max-width: 605px) {
     li {
         display: none;
