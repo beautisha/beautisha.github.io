@@ -19,6 +19,7 @@ function drag(puzzles) {
                 }
                 puzzles[i].onmouseup = null;
                 document.onmousemove = null;
+                checkFigure(puzzles)
             }
         }
         puzzles[i].ondragstart = function () {
@@ -27,6 +28,8 @@ function drag(puzzles) {
     }
 }
 let dragFlag = true;
+let content = document.getElementById('content');
+
 function rotate(element) {
     let deg = getDegree(element);
     deg += 90;
@@ -52,4 +55,29 @@ function getDegree(element) {
         degree = 360 + degree;
     }
     return degree;
+}
+
+function checkRot(el) {
+    let item = document.getElementById('head');
+    item.style.transform = 'rotate(0deg)';
+    return (getDegree(el) == 0);
+}
+
+function checkField(content, puzzle) {
+    let fieldCoord = content.getBoundingClientRect();
+    let puzzleCoord = puzzle.getBoundingClientRect();
+    return ((fieldCoord.left <= puzzleCoord.left) && (fieldCoord.right >= puzzleCoord.right) 
+    && (fieldCoord.top <= puzzleCoord.top) && (fieldCoord.bottom >= puzzleCoord.bottom));
+}
+
+function checkFigure(puzzles) {
+    for (let i = 0; i < puzzles.length; i++) {
+        if (!(checkField(content, puzzles[i]) && checkRot(puzzles[i]))) {
+            return;
+        }
+    }
+    let eye = document.querySelectorAll(".pupil");
+    for (let i = 0; i < eye.length; i++) {
+        eye[i].style.animation = "an-pupils 1s infinite alternate-reverse";
+    }
 }

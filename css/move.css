@@ -6,8 +6,6 @@
     to {
         left: 0px;
     }
-
-    
 }
 
 #head {
@@ -60,10 +58,6 @@ img {
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    animation-name: an-pupils;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
 }
 
 .pupil_ref {
@@ -80,8 +74,8 @@ img {
     position: absolute;
     top: 500px;
     left: 500px;
-    height: 300px;
-    width: 300px;
+    height: 100px;
+    width: 100px;
     transform: rotate(90deg);
 }
 
@@ -98,14 +92,14 @@ img {
 #baffi_sx {
     position: relative;
     left: -140px;
-    top: -85px;
+    top: -95px;
     transform: rotate(10deg);
 }
 
 #baffi_dx {
     position: relative;
     left: 183px;
-    top: -54px;
+    top: -44px;
     transform: rotate(-10deg);
 }
 
