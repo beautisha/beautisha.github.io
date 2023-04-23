@@ -1,0 +1,119 @@
+@keyframes an-pupils {
+    from {
+        left: 60px;
+    }
+
+    to {
+        left: 0px;
+    }
+
+    
+}
+
+#head {
+    width: 400px;
+    height: 400px;
+    background-color: #171717;
+    border-radius: 50%;
+    position: absolute;
+    top: 190px;
+    left: 500px;
+}
+
+img {
+    height: 240px;
+    width: 240px;
+    position: relative;
+}
+
+.ear4 {
+    height: 240px;
+    width: 240px;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    transform: rotate(90deg);
+    z-index: 2;
+}
+
+.eye {
+    width: 120px;
+    height: 120px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 150px;
+    right: 350px;
+    transform: rotate(270deg);
+    z-index: 2;
+}
+
+.eye1 {
+    right: 200px;
+    transform: rotate(180deg);
+}
+
+.pupil {
+    position: relative;
+    top: 40px;
+    background-color: #000000;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation-name: an-pupils;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.pupil_ref {
+    background-color: #FFFFFF;
+    border-radius: 45%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 40px;
+    left: 10px;
+}
+
+#part6 {
+    position: absolute;
+    top: 500px;
+    left: 500px;
+    height: 300px;
+    width: 300px;
+    transform: rotate(90deg);
+}
+
+#nose {
+    width: 45px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    position: relative;
+    top: 0px;
+    left: 130px;
+}
+
+#baffi_sx {
+    position: relative;
+    left: -140px;
+    top: -85px;
+    transform: rotate(10deg);
+}
+
+#baffi_dx {
+    position: relative;
+    left: 183px;
+    top: -54px;
+    transform: rotate(-10deg);
+}
+
+.baffo {
+    width: 260px;
+    height: 5px;
+    border: solid 3px #000;
+    border-color: #000 transparent transparent transparent;
+    border-radius: 60%/30px 30px 0 0;
+
+}

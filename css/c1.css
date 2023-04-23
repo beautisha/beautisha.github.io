@@ -173,6 +173,9 @@ button {
 .class2 {
     background-color: rgb(255, 152, 152);
 }
+#animal {
+    text-align: center;
+}
 
 @media (max-width: 605px) {
     li {
