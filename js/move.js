@@ -67,13 +67,58 @@ function checkField(content, puzzle) {
     let fieldCoord = content.getBoundingClientRect();
     let puzzleCoord = puzzle.getBoundingClientRect();
     return ((fieldCoord.left <= puzzleCoord.left) && (fieldCoord.right >= puzzleCoord.right) 
-    && (fieldCoord.top <= puzzleCoord.top) && (fieldCoord.bottom >= puzzleCoord.bottom));
+    && (fieldCoord.top - 30 <= puzzleCoord.top) && (fieldCoord.bottom >= puzzleCoord.bottom));
 }
 
 function checkFigure(puzzles) {
+    let eye1, eye2, head, ear1, ear2, part6 = null;
     for (let i = 0; i < puzzles.length; i++) {
         if (!(checkField(content, puzzles[i]) && checkRot(puzzles[i]))) {
             return;
+        }
+        
+        switch (puzzles[i].className) {
+            case "head puzzle":
+                head = puzzles[i].getBoundingClientRect();
+                break;
+            case "eye1 eye puzzle":
+                eye1 = puzzles[i].getBoundingClientRect();
+                if (!((eye1.top > head.top) && (eye1.left > head.left) && (eye1.bottom < head.bottom) && (eye1.right < head.right))) {
+                    return;
+                }
+                break;
+            case "eye2 eye puzzle":
+                eye2 = puzzles[i].getBoundingClientRect();
+                if (!((eye2.top > head.top) && (eye2.left > head.left) && (eye2.bottom < head.bottom) && (eye2.right < head.right))) {
+                    return;
+                }
+                if (!((eye1.top + 10 >= eye2.top) && (eye1.top - 10 <= eye2.top))) {
+                    return;
+                }
+                break;
+            case "part6 puzzle":
+                part6 = puzzles[i].getBoundingClientRect();
+                if (!(part6.top > head.top && part6.bottom < head.bottom && part6.left > head.left && part6.right < head.right)) {
+                    return;
+                }
+                if (!(part6.top > eye1.bottom && part6.top > eye2.bottom)) {
+                    return;
+                }
+                break;
+            case "ear1 ear4 puzzle":
+                ear1 = puzzles[i].getBoundingClientRect();
+                if (!(ear1.bottom - 80 > head.top && ear1.left+120 < head.right && ear1.top + 100 < head.top && ear1.right > head.right)) {
+                    return;
+                }
+                break;
+            case "ear2 ear4 puzzle":
+                ear2 = puzzles[i].getBoundingClientRect();
+                if (!(ear2.bottom - 80 > head.top && ear2.right-120 > head.left && ear2.top + 100 < head.top && ear2.left < head.left)) {
+                    return;
+                }
+                break;
+            default:
+                break;
         }
     }
     let eye = document.querySelectorAll(".pupil");
