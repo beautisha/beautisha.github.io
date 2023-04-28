@@ -67,7 +67,7 @@ function checkField(content, puzzle) {
     let fieldCoord = content.getBoundingClientRect();
     let puzzleCoord = puzzle.getBoundingClientRect();
     return ((fieldCoord.left <= puzzleCoord.left) && (fieldCoord.right >= puzzleCoord.right) 
-    && (fieldCoord.top - 30 <= puzzleCoord.top) && (fieldCoord.bottom >= puzzleCoord.bottom));
+    && (fieldCoord.top - 50 <= puzzleCoord.top) && (fieldCoord.bottom >= puzzleCoord.bottom));
 }
 
 function checkFigure(puzzles) {
