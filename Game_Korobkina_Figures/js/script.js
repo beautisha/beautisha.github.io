@@ -231,6 +231,7 @@ btnNext.onclick = function () {
                 }
             }
             clearInterval(timer2);
+            clearTimeout(callId);
             page5.classList.toggle('activePage');
             page6loose.classList.toggle('activePage');
         }
