@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <link rel="stylesheet" href="/Game_Korobkina_Figures/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,700;1,700&family=Magra:wght@700&family=Pacifico&family=Red+Hat+Text:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="pages">
+        <div class="page page1 activePage">
+            <h1>Найди подходящую фигуру!<br></h1>
+            <form>
+                <input type="text" minlength="3" placeholder="Введите имя..." required>
+                <button type="submit" class="btnStart">
+                    Начать игру!
+                </button>
+            </form>
+            <div class="rectangle rectangle1"></div>
+            <div class="square square1"></div>
+            <div class="circle circle1"></div>
+            <div class="triangle triangle1"></div>
+            <div class="heart"></div>
+            <div class="triangle triangle2"></div>
+        </div>
+        <div class="page page2">
+            <div class="window">
+                <h2>1 уровень!</h2>
+                <ul>
+                    <li>наберите 10 очков
+                        для прохождения на следующий уровень за 1 минуту
+                        (за каждую ошибку снимается балл)</li>
+                    <li>выбирайте фигуры с перевернутым названием!</li>
+                </ul>
+                <button class="btnIndo">
+                    Начать игру!
+                </button>
+            </div>
+            <div class="rectangle rectangle1"></div>
+            <div class="square square1"></div>
+            <div class="circle circle1"></div>
+            <div class="triangle triangle1"></div>
+            <div class="heart"></div>
+            <div class="triangle triangle2"></div>
+        </div>
+        <div class="page page3">
+            <div class="timer">
+                <p id="count1">01:00</p>
+            </div>
+            <button class="btnExit">
+                Выйти
+            </button>
+            <div class="score">
+                <p class="scoreText">Очки:</p>
+                <p class="scoreNumb">0</p>
+            </div>
+            <div class="task">
+                <p>Найдите фигуру, в которой текст<br>
+                    перевернут</p>
+                <div class="figures">
+                    <div class="figure1">
+                    </div>
+                    <div class="figure2">
+                    </div>
+                    <div class="figure3">
+                    </div>
+                    <div class="figure4">
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h2>Правильно!</h2>
+            </div>
+            <div class="wrong">
+                <h2>Неправильно!</h2>
+            </div>
+        </div>
+        <div class="page page4loose">
+            <div class="window">
+                <h2>К сожалению, Вы не успели набрать 10 баллов</h2>
+                
+                <button class="btnAgain">
+                    Начать заново
+                </button>
+            </div>
+            <div class="rectangle rectangle1"></div>
+            <div class="square square1"></div>
+            <div class="circle circle1"></div>
+            <div class="triangle triangle1"></div>
+            <div class="heart"></div>
+            <div class="triangle triangle2"></div>
+        </div>
+        <div class="page page4">
+            <div class="window">
+                <h2>Поздравляем! Вы прошли 1 уровень!</h2>
+                <h2>2 уровень!</h2>
+                <ul>
+                    <li>наберите 5 очков
+                        для прохождения на следующий уровень за 1 минуту
+                        (каждые 7 секунд фигуры обновляются)</li>
+                    <li>перетащите фигуры в нужное место</li>
+                </ul>
+                <button class="btnNext">
+                    Продолжить!
+                </button>
+            </div>
+            <div class="rectangle rectangle1"></div>
+            <div class="square square1"></div>
+            <div class="circle circle1"></div>
+            <div class="triangle triangle1"></div>
+            <div class="heart"></div>
+            <div class="triangle triangle2"></div>
+        </div>
+        <div class="page page5">
+            <div class="drag">
+                <div class="timer">
+                    <p id="count2">01:00</p>
+                </div>
+                <button class="btnExit2">
+                    Выйти
+                </button>
+                <div class="score">
+                    <p class="scoreText">Очки:</p>
+                    <p class="scoreNumb scoreNumb2">0</p>
+                </div>
+                <div class="task">
+                    <p>Перетащите фигуры по группам:<br>
+                        <span class="first">квадраты</span> слева, <span class="second">круги</span> справа
+                    </p>
+                    <div class="figures">
+
+                    </div>
+                </div>
+                <div class="right right2">
+                    <h2>Правильно!</h2>
+                </div>
+                <div class="figure21">
+                </div>
+                <div class="figure22">
+                </div>
+                <div class="figure23">
+                </div>
+                <div class="figure24">
+                </div>
+                <div class="container container1">
+                </div>
+                <div class="container container2">
+                </div>
+            </div>
+        </div>
+        <div class="page page6loose">
+            <div class="window">
+                <h2>К сожалению, Вы не успели набрать 5 баллов</h2>
+                <button class="btnAgain btnAgain2">
+                    Начать заново
+                </button>
+            </div>
+            <div class="rectangle rectangle1"></div>
+            <div class="square square1"></div>
+            <div class="circle circle1"></div>
+            <div class="triangle triangle1"></div>
+            <div class="heart"></div>
+            <div class="triangle triangle2"></div>
+        </div>
+        <div class="page page6">
+            <div class="window">
+                <h2>Поздравляем! Вы прошли 2 уровень!</h2>
+                <h2>3 уровень!</h2>
+                <ul>
+                    <li>тыкайте в фигурки, но их пока нет
+                        (за каждую ошибку снимается балл)</li>
+                    <li>разработчик устал и кушает макарошки</li>
+                </ul>
+                <button class="btnNext btnNext1">
+                    Продолжить!
+                </button>
+            </div>
+            <div class="rectangle rectangle1"></div>
+            <div class="square square1"></div>
+            <div class="circle circle1"></div>
+            <div class="triangle triangle1"></div>
+            <div class="heart"></div>
+            <div class="triangle triangle2"></div>
+        </div>
+    </div>
+    <div class="page page7">
+
+        <div class="timer">
+            <p id="count2">01:00</p>
+        </div>
+        <button class="btnExit2 btnExit3">
+            Выйти
+        </button>
+        <div class="score">
+            <p class="scoreText">Очки:</p>
+            <p class="scoreNumb scoreNumb3">0</p>
+        </div>
+        <div class="task">
+            <p>кушайте макарошки<br>
+                <span class="first">квадраты</span> слева, <span class="second">круги</span> справа
+            </p>
+            <div class="figures">
+            </div>
+        </div>
+        <div class="right right2">
+            <h2>Правильно!</h2>
+        </div>
+        <div class="wrong">
+            <h2>Неправильно!</h2>
+        </div>
+
+
+    </div>
+    <script src="/Game_Korobkina_Figures/js/script.js"></script>
+</body>
+
+</html>

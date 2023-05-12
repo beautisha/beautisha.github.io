@@ -1,0 +1,306 @@
+* {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff8a9;
+    margin: 0;
+	font-size: 20px;
+    padding: auto;
+	text-align: center;
+    font-family: 'Pacifico';
+}
+
+.pages {
+	min-height: 100vh;
+	position: relative;
+}
+
+.page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	width: 100%;
+	min-height: 100%;
+	transform: translate(-100%, 0);
+	transition-timing-function: linear;
+	transition-duration: 0.3s;
+	transition-property: transform, visibility, opacity;
+}
+
+.activePage {
+	transform: translate(0, 0);
+	opacity: 1;
+	visibility: visible;
+}
+
+.divRate {
+    display: grid;
+    width: 50%;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin: auto;
+    font-size: 1.2em;
+    color: rgb(185, 18, 6);
+}
+
+p {
+    border: 1px solid rgb(185, 18, 6);
+    height: 100%;
+}
+
+h1 {
+    color:rgb(185, 18, 6);
+    margin-top: 150px;
+    font-size: 5em;
+}
+
+input {
+	padding: 10px;
+	border-color: rgb(185, 18, 6);
+	color: rgb(185, 18, 6);
+	font-size: 2em;
+	margin: auto;
+    margin-top: 240px;
+	height: 70px;
+	width: 30%;
+	background-color: #fff8a9;
+    display: block;
+}
+
+button {
+    font-family: 'Pacifico';
+	font-size: 1.5em;
+	cursor: pointer;
+	margin-top: 150px;
+	background: radial-gradient(circle, rgb(255, 233, 71) 0%, rgb(240, 60, 47) 100%);
+	color: black;
+	border-radius: 20px;
+	width: 300px;
+	height: 100px;
+	border: 0;
+}
+
+.btnRate {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.btnStart {
+    margin-top: 50px;
+}
+
+.btnBack, .btnExit, .btnExit2 {
+    position: absolute;
+    left: 3.5vw;
+    bottom: 7vh;
+}
+
+.rectangle{
+	width: 200px;
+	height: 100px;
+	background-color: yellowgreen;
+}
+
+.rectangle1 {
+    position: absolute;
+    left: 20vw;
+    bottom: 15vh;
+}
+
+.square{
+	width: 100px;
+	height: 100px;
+	background-color: rgb(240, 60, 47);
+}
+
+.square1 {
+    position: absolute;
+    top: 60vh;
+    left: 5vw;
+}
+
+.circle{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: rgb(255, 233, 71);
+}
+
+.circle1 {
+    position: absolute;
+    top: 60vh;
+    right: 5vw;
+}
+
+.ellipse {
+    width: 200px;
+	height: 100px;
+    background-color: rgb(100, 100, 182);
+    border-radius: 100px/50px;
+}
+
+.triangle{
+	width: 100px;
+	height: 100px;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid blueviolet;
+}
+
+.triangle1 {
+    position: absolute;
+    top: 40vh;
+    left: 28vw;
+}
+
+.triangle2 {
+    position: absolute;
+    right: 20vw;
+    bottom: 15vh;
+    border-bottom: 100px solid rgb(0, 0, 153);
+}
+
+.heart {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(255, 0, 242);
+    transform: rotate(45deg);
+    position: absolute;
+    margin: 10px;
+    top: 40vh;
+    right: 28vw;
+}
+
+.heart::after,
+.heart::before {
+    display: block;
+    height: 80px;
+    width: 80px;
+    content: '';
+    background-color: rgb(255, 0, 242);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -40px;
+    left: 0;
+}
+
+.heart::after {
+    left: -40px;
+    top: 0;
+}
+
+.window {
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+ul {
+    font-size: 1.2em;
+}
+
+.btnIndo {
+    margin-top: 300px;
+}
+
+.timer, .score {
+    font-size: 2em;
+    position: absolute;
+    height: 30px;
+}
+
+#count1, #count2, #count3, .scoreText, .scoreNumb {
+    border: none;
+}
+
+.timer p {
+    font-size: 1.5em;
+}
+
+.task{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	width: auto;
+    padding-top: 200px;
+}
+.task p{
+	margin: 0;
+    margin-bottom: 100px;
+	font-size: 2em;
+    border: none;
+    color:rgb(185, 18, 6);
+}
+
+.timer {
+    top: 2vh;
+    left: 5vw;
+}
+
+.score {
+    top: 2vh;
+    right: 5vw;
+}
+
+.right, .wrong {
+    display: none;
+}
+
+.figures{
+	margin-top: 20px;
+	display: flex;
+	gap: 80px;
+    cursor: pointer;
+}
+
+.transformFigure {
+    transform:rotate(180deg);
+}
+
+.container {
+    position: absolute;
+    border: 3px solid black;
+    height: 300px;
+    width: 300px;
+    z-index: -1;
+}
+
+.container1 {
+    left: 20px;
+    bottom: 300px;
+}
+
+.container2 {
+    right: 20px;
+    bottom: 300px;
+}
+
+.drag {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.btnAgain {
+    margin-top: 450px;
+}
