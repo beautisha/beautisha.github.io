@@ -304,3 +304,8 @@ ul {
 .btnAgain {
     margin-top: 450px;
 }
+
+.fig {
+    position: absolute;
+    display: none;
+}

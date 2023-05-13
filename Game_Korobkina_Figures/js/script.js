@@ -65,11 +65,11 @@ btnIndo.onclick = function () {
             page3.classList.toggle('activePage');
             page4loose.classList.toggle('activePage');
         }
-        let str = '0'+minutes+':';
+        let str = '0' + minutes + ':';
         if (seconds >= 10) {
             str += seconds;
         } else {
-            str += '0'+seconds;
+            str += '0' + seconds;
         }
         timerOutput.innerHTML = str;
         timeCount--;
@@ -79,7 +79,7 @@ btnIndo.onclick = function () {
 
 let scoreNumb = document.querySelector('.scoreNumb');
 
-btnAgain.onclick = function() {
+btnAgain.onclick = function () {
     page4loose.classList.toggle('activePage');
     page2.classList.toggle('activePage');
     scoreNumb.textContent = '0';
@@ -87,6 +87,7 @@ btnAgain.onclick = function() {
 
 let btnExit = document.querySelector('.btnExit');
 btnExit.onclick = function () {
+    clearInterval(timer);
     user.points = Number(scoreNumb.textContent);
     let localStorageSize = localStorage.length;
     if (localStorageSize > 0) {
@@ -235,11 +236,11 @@ btnNext.onclick = function () {
             page5.classList.toggle('activePage');
             page6loose.classList.toggle('activePage');
         }
-        let str = '0'+minutes2+':';
+        let str = '0' + minutes2 + ':';
         if (seconds2 >= 10) {
             str += seconds2;
         } else {
-            str += '0'+seconds2;
+            str += '0' + seconds2;
         }
         timerOutput2.innerHTML = str;
         timeCount2--;
@@ -247,7 +248,7 @@ btnNext.onclick = function () {
     setFigureType2();
 }
 
-btnAgain2.onclick = function() {
+btnAgain2.onclick = function () {
     page6loose.classList.toggle('activePage');
     page2.classList.toggle('activePage');
     scoreNumb.textContent = '0';
@@ -255,6 +256,7 @@ btnAgain2.onclick = function() {
 
 let btnExit2 = document.querySelector('.btnExit2');
 btnExit2.onclick = function () {
+    clearInterval(timer2);
     user.points = Number(scoreNumb2.textContent);
     let localStorageSize = localStorage.length;
     if (localStorageSize > 0) {
@@ -424,15 +426,215 @@ function checkGame(figs) {
 let btnNext1 = document.querySelector('.btnNext1');
 let page7 = document.querySelector('.page7');
 let scoreNumb3 = document.querySelector('.scoreNumb3');
+let timer3;
+let timerOutput3 = document.querySelector('#count3');
+let timeCount3 = 60;
+let minutes3 = 0;
+let seconds3 = 0;
+
+let fig1 = document.querySelector('.fig1');
+let fig2 = document.querySelector('.fig2');
+let fig3 = document.querySelector('.fig3');
+let fig4 = document.querySelector('.fig4');
+let fig5 = document.querySelector('.fig5');
+let fig6 = document.querySelector('.fig6');
+let fig7 = document.querySelector('.fig7');
+let fig8 = document.querySelector('.fig8');
+
+let flyFigs = [fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8];
+let page8 = document.querySelector('.page8');
 
 btnNext1.onclick = function () {
     page6.classList.toggle('activePage');
     page7.classList.toggle('activePage');
     scoreNumb3.textContent = scoreNumb2.textContent;
+    timerOutput3.textContent = '01:00';
+    timeCount3 = 60;
+    timer3 = setInterval(function () {
+        minutes3 = Math.floor(timeCount3 / 60);
+        seconds3 = timeCount3 % 60;
+        if (timeCount3 <= 0) {
+            user.points = Number(scoreNumb3.textContent);
+            let localStorageSize = localStorage.length;
+            if (localStorageSize > 0) {
+                for (let i = 0; i < localStorageSize; i++) {
+                    let us = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                    if ((user.name == us.name) && (user.points > us.points)) {
+                        let key = localStorage.key(i);
+                        localStorage.removeItem(localStorage.key(i));
+                        localStorage.setItem(key, JSON.stringify(user));
+                        break;
+                    }
+                }
+            }
+            clearInterval(timer3);
+            page7.classList.toggle('activePage');
+            page8.classList.toggle('activePage');
+            allPoints.textContent = scoreNumb3.textContent;
+        }
+        let str = '0' + minutes3 + ':';
+        if (seconds3 >= 10) {
+            str += seconds3;
+        } else {
+            str += '0' + seconds3;
+        }
+        timerOutput3.innerHTML = str;
+        timeCount3--;
+    }, 1000)
+    setFigureType3(flyFigs);
+    for (let i = 0; i<flyFigs.length; i++) {
+        moveFigures(flyFigs[i]);
+    }
 }
 
 let btnExit3 = document.querySelector('.btnExit3');
 btnExit3.onclick = function () {
+    clearInterval(timer3);
+    user.points = Number(scoreNumb3.textContent);
+    let localStorageSize = localStorage.length;
+    if (localStorageSize > 0) {
+        for (let i = 0; i < localStorageSize; i++) {
+            let us = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            if ((user.name == us.name) && (user.points > us.points)) {
+                let key = localStorage.key(i);
+                localStorage.removeItem(localStorage.key(i));
+                localStorage.setItem(key, JSON.stringify(user));
+                break;
+            }
+        }
+    }
+    location.href = 'index.html';
+}
+
+let rightVar3 = getRandomInt(7);
+let figureType3 = [0,1,2,3,4,5,6,7];
+let right3 = document.querySelector('.right3');
+let rong3 = document.querySelector('.rong3');
+
+function setFigureType3(figures) {
+    right3.style.display = 'none';
+    rong3.style.display = 'none';
+    for (let i = 0; i < figures.length; i++) {
+        figures[i].style.display = 'block';
+        figures[i].style.position = 'absolute';
+        figures[i].style.top = 0 + 'px';
+    }
+    shuffle(figureType3);
+    for (let i = 0; i < figures.length; i++) {
+        if (figureType3[i] == 0) {
+            figures[i].className = '';
+            figures[i].classList.add('square');
+            figures[i].textContent = 'Квадрат';
+            if (rightVar3 == 0) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 1) {
+            figures[i].className = '';
+            figures[i].classList.add('rectangle');
+            figures[i].textContent = 'Прямоугольник';
+            if (rightVar3 == 1) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 2) {
+            figures[i].className = '';
+            figures[i].classList.add('circle');
+            figures[i].textContent = 'Круг';
+            if (rightVar3 == 2) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 3) {
+            figures[i].className = '';
+            figures[i].classList.add('ellipse');
+            figures[i].textContent = 'Овал';
+            if (rightVar3 == 3) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 4) {
+            figures[i].className = '';
+            figures[i].classList.add('square');
+            figures[i].textContent = 'Квадрат';
+            if (rightVar3 == 4) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 5) {
+            figures[i].className = '';
+            figures[i].classList.add('rectangle');
+            figures[i].textContent = 'Прямоугольник';
+            if (rightVar3 == 5) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 6) {
+            figures[i].className = '';
+            figures[i].classList.add('circle');
+            figures[i].textContent = 'Круг';
+            if (rightVar3 == 6) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+        if (figureType3[i] == 7) {
+            figures[i].className = '';
+            figures[i].classList.add('ellipse');
+            figures[i].textContent = 'Овал';
+            if (rightVar3 == 7) {
+                figures[i].classList.add('transformFigure');
+            }
+        }
+    }
+    for (let i = 0; i < flyFigs.length; i++) {
+        flyFigs[i].onclick = function () {
+            if (flyFigs[i].classList.contains('transformFigure')) {
+                right3.style.display = 'block';
+                scoreNumb3.textContent = Number(scoreNumb3.textContent) + 1;
+            } else {
+                rong3.style.display = 'block';
+                scoreNumb3.textContent = Number(scoreNumb3.textContent) - 1;
+            }
+            rightVar3 = getRandomInt(7);
+            setTimeout(setFigureType3, 300, flyFigs);
+        }
+    }
+}
+
+function moveFigures(fig) {
+    let x = 1;
+    let y = 1;
+    let page7H = page7.clientHeight;
+    let page7V = page7.clientWidth;
+    let figH = fig.offsetHeight;
+    let figV = 200;
+    let rand1 = Math.floor(Math.random() * 10) +2;
+    let rand2 = Math.floor(Math.random() * 10) +2;
+    setInterval(function () {
+        if (x >= page7V - figV - rand1) {
+            rand1 = -rand1;
+        }
+        if (y >= page7H - figH - rand2) {
+            rand2 = -rand2;
+        }
+        if (x <= 0) {
+            rand1 = -rand1;
+        }
+        if (y <= 0) {
+            rand2 = -rand2;
+        }
+        x = x + rand1;
+        y = y + rand2;
+        fig.style.left = x + 'px';
+        fig.style.top = y + 'px';
+    }, 24)
+}
+
+let allPoints = document.querySelector('.allPoints');
+
+
+let btnNext2 = document.querySelector('.btnNext2');
+btnNext2.onclick = function () {
     user.points = Number(scoreNumb3.textContent);
     let localStorageSize = localStorage.length;
     if (localStorageSize > 0) {
